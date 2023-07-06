@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+  <div class="card" style="width: 18rem;">
+    <img src="{{ url_for('static', filename='perfil.jpg') }}" class="card-img-top" alt="Profile img">
+    <div class="card-body">
+      <h2 class="card-title">{{ cliente.nombre }},{{cliente.apellidos}}</h2>
+      <p class="card-text">{{ cliente.ciudad }}</p>
+      <p class="card-text">{{ cliente.pais }}</p>
+      <a href="/" class="btn btn-primary">Go back</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+
+
+
