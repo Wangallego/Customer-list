@@ -1,30 +1,51 @@
-{% extends 'base.html' %}
-
-{% block title %}
-{% endblock %}
-
-{% block content %}
-<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
-  <div class="card text-center" style="max-width: 600px;">
+{% extends 'base.html' %} {% block title %} {% endblock %} {% block content %}
+<div
+  class="d-flex justify-content-center align-items-center"
+  style="height: 100vh"
+>
+  <div class="card text-center" style="max-width: 600px">
     <div class="row g-0">
       <div class="col-md-4 d-flex align-items-center justify-content-center">
-        <img src="{{ url_for('static', filename='perfil.jpg') }}" class="card-img-left" alt="Profile img" style="max-width: 100%; max-height: 100%;">
+        <img
+          src="{{ url_for('static', filename='perfil.jpg') }}"
+          class="card-img-left"
+          alt="Profile img"
+          style="max-width: 100%; max-height: 100%"
+        />
       </div>
-      <div class="col-md-8">
+      <div class="col-md-8 max-width:540px">
         <div class="card-body">
-          <h2 class="card-title">{{ cliente.nombre }}, {{ cliente.apellidos }}</h2>
-          <p class="card-text"><strong>Residencia:</strong> {{ cliente.ciudad }}</p>
+          <h2 class="card-title">
+            {{ cliente.nombre }}, {{ cliente.apellidos }}
+          </h2>
+          <p class="card-text">
+            <strong>Residencia:</strong> {{ cliente.ciudad }}
+          </p>
           <p class="card-text"><strong>Pais:</strong> {{ cliente.pais }}</p>
-          <a href="/" class="btn btn-primary">Go back</a>
+          <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                  Más información
+                </button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis rerum veritatis id repudiandae delectus libero nam? Sint, fugit odit repellat dolorem odio nihil totam quibusdam saepe. Necessitatibus eum corporis excepturi.</div>
+              </div>
+            </div>
+            <div class="d-md-flex justify-content-md-end">
+              <a
+                href="/"
+                class="btn btn-primary mt-2 d-grid gap-2 col-6 mx-auto"
+                type="button"
+                >Go back</a
+              >
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+  {% endblock %}
 </div>
-
-{% endblock %}
-
-
-
-
-

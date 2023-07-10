@@ -7,32 +7,33 @@ app = Flask(__name__)
 
 Cliente.cargar_datos(str(Path('data') / 'clientes.csv'))
 
-
-
-
-
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    # to dO: Cargar lista de clientes dende o modelo e pasala á vista clientes.html
+    search_query = request.args.get('search', '').lower()
+
     clientes = Cliente.todos()
     
-    #Paginación.    
-    PAGE_SIZE = 15  
-    # Calcular la paginación
+    if search_query:
+        clientes = [cliente for cliente in clientes if
+                    search_query in cliente.nombre.lower() or
+                    search_query in cliente.apellidos.lower() or
+                    search_query in cliente.ciudad.lower() or
+                    search_query in cliente.pais.lower()]
+
+    PAGE_SIZE = 15
     _page = int(request.args.get('_page', 1))
-    clientes = Cliente.todos()
 
     num_clientes = len(clientes)
     num_pages = (num_clientes + PAGE_SIZE - 1) // PAGE_SIZE
     clientes_paginados = clientes[(_page - 1) * PAGE_SIZE:_page * PAGE_SIZE]
 
-    # Calcular las páginas para la paginación
     start_page = max(1, (_page - 1) // 3 * 3 + 1)
     end_page = min(num_pages, (_page - 1) // 3 * 3 + 4)
     pages = range(start_page, end_page)
 
-# Renderizar la plantilla 'clientes.html' con los datos necesarios
     return render_template('clientes.html', clientes=clientes_paginados, pages=pages, _page=_page, num_pages=num_pages)
+
+
     
 
     
