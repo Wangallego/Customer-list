@@ -3,16 +3,20 @@ Una plantilla que sirve para filtrar y mostrar los detalles del cliente. Este pr
 
 #Estructura de la aplicación La estructura de la aplicación se organiza de la siguiente manera:
 
-app.py: Archivo principal de la aplicación Flask.
-model.py: Contiene la definición de la clase Cliente y métodos relacionados.
-templates/: Carpeta que contiene las plantillas HTML utilizadas por la aplicación.
-base.html: Plantilla base que define la estructura común de las páginas.
-clientes.html: Plantilla para la página principal que muestra la lista de clientes.
-detalle_cliente.html: Plantilla para mostrar los detalles de un cliente específico.
-404.html: Plantilla para mostrar la página de error 404.
-static/: Carpeta que contiene archivos estáticos, como imágenes o archivos CSS.
-perfil.jpg: Imagen utilizada en la página de detalle del cliente.
-data/: Carpeta que contiene los datos de los clientes en formato CSV. #Esquema de rutas: Ruta principal ("/"): Muestra la lista de clientes y permite realizar búsquedas y paginación. Ruta de detalle de cliente ("/detalle_cliente/int:id"): Muestra los detalles de un cliente según su ID. Ruta de búsqueda de cliente ("/detalle_cliente"): Permite buscar clientes por nombre, apellido y ciudad. Ruta de error 404 ("/404"): Página de error cuando una página no se encuentra.
+-app.py: Archivo principal de la aplicación Flask.
+-model.py: Contiene la definición de la clase Cliente y métodos relacionados.
+-templates/: Carpeta que contiene las plantillas HTML utilizadas por la aplicación.
+-base.html: Plantilla base que define la estructura común de las páginas.
+-clientes.html: Plantilla para la página principal que muestra la lista de clientes.
+-detalle_cliente.html: Plantilla para mostrar los detalles de un cliente específico.
+-404.html: Plantilla para mostrar la página de error 404.
+-static/: Carpeta que contiene archivos estáticos, como imágenes o archivos CSS.
+-perfil.jpg: Imagen utilizada en la página de detalle del cliente.
+-data/: Carpeta que contiene los datos de los clientes en formato CSV. #Esquema de rutas: Ruta principal ("/"): Muestra la -- 
+ lista de clientes y permite realizar búsquedas y paginación. Ruta de detalle de cliente ("/detalle_cliente/int:id"): Muestra 
+ los detalles de un cliente según su ID. Ruta de búsqueda de cliente ("/detalle_cliente"): Permite buscar clientes por 
+ nombre, apellido y ciudad.
+-Ruta de error 404 ("/404"): Página de error cuando una página no se encuentra.
 #Descripción breve del modelo El modelo de la aplicación incluye una clase llamada Cliente, que representa a un cliente. Cada instancia de la clase Cliente tiene las siguientes propiedades:
 
 id: ID del cliente.
